@@ -1,0 +1,90 @@
+<div class="container">
+    <div class="row">  
+        <div class="form_bg">  
+
+          <div class="nav">
+            <h2 class="">Manager-Employee management flow</h2>
+              <!-- <img src="assets/manager.jpg" alt="">                  -->
+           </div>
+          <br/> 
+
+            <form [formGroup]="signupForm" (ngSubmit)="addEmployee()">  
+                <div class="d-flex flex-row">                               
+                <div class="form-group">  
+                    <input type="text" class="form-control" 
+                    placeholder="First Name" formControlName="FirstName" id="FirstName">   
+                </div>
+
+                <div class="form-group">  
+                  <input type="text" class="form-control" 
+                  placeholder="Last Name" formControlName="LastName" id='LastName'>   
+                </div>
+
+                <div class="form-group">  
+                  <input type="text" class="form-control" 
+                  placeholder="Address" formControlName="Address" id="Address">   
+                </div>
+
+                <div class="form-group">  
+                  <input type="text" class="form-control" 
+                  placeholder="Birth Date" formControlName="BirthDate" id="BirthDate">   
+                </div>
+
+                <div class="form-group">  
+                  <input type="text" class="form-control" 
+                  placeholder="Mobile" formControlName="Mobile" id="Mobile">   
+                </div>
+
+                <div class="form-group">  
+                  <input type="text" class="form-control" 
+                  placeholder="City" formControlName="City" id="City">   
+                </div>
+              </div> 
+
+              <div class="d-flex justify-content-end mt-3">
+                <app-button type="submit" (click)="addEmployee()"
+                    [hasColor]="true" [text]="'ADD EMP'">
+                 </app-button>
+              </div>  
+            </form>  
+            
+        </div>  
+    </div> 
+  
+    <br>
+    <table class="table table-bordered mt-5">
+      <thead>
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Address</th>
+          <th scope="col">Birth Date</th>
+          <th scope="col">Mobile</th>
+          <th scope="col">City</th>
+          <th scope="col">Delete</th>
+          <th scope="col">Update</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of getEmpDataServer, let i = index">
+          <td>{{i+1}}</td>
+          <!-- <td>{{item._id}}</td> -->
+          <td>{{item.first_name}}</td>
+          <td>{{item.last_name}}</td>
+          <td>{{item.address}}</td>
+          <td>{{item.birthdate}}</td>
+          <td>{{item.mobile}}</td>
+          <td>{{item.city}}</td>
+          <td>
+            <button type="button" class="btn btn-primary" *ngIf="showEditbtn" (click)="editbtn()">EDIT</button>
+            <app-button (click)="updateEmployee(item.id)" [hasColor]="true" [text]="'UPDATE'" *ngIf="!showEditbtn"></app-button>
+          </td>            
+          <td>            
+            <button type="button" class="btn btn-danger" (click)="deleteEmployee(item._id)">DELETE</button>
+          </td>
+        </tr>     
+      </tbody>
+    </table> 
+  </div>
+  

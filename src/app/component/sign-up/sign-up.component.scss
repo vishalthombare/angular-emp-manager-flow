@@ -1,0 +1,49 @@
+.mb-container{
+    background-color: #B2AEB5;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 100vh;
+}
+
+.mb-wrapper{
+    border-radius: 20px;
+    width: 480px;
+    padding: 30px;
+    background-color: #fff;
+}
+.space-btwn{
+    display: flex;
+    justify-content: space-between;
+}
+.mb-title{
+    margin-bottom: 20px;
+    span{
+        color: #2D4354;
+        font-family: "Open Sans";
+        font-size: 35px;
+        font-weight: 800;
+    }
+}
+.mb-user-pass-section{        
+    span{
+        margin-bottom: 5px;
+        color: #707583;
+        font-family: "Open Sans";
+        font-size: 12px;
+        font-weight: 600;
+    }
+    input{
+        padding: 12px;
+        font-family: "Open Sans";
+        color: #2D4354;
+        margin-bottom: 20px;
+        height: 50px;
+        width: 100%;
+        border-radius: 10px;
+        background-color: #eaebf1;
+        border: none;
+    }
+}  
+

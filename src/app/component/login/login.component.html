@@ -1,0 +1,26 @@
+<div class="mb-container">
+    <div class="mb-wrapper">
+        <div class="mb-title">
+            <span>LOGIN</span>
+        </div>
+        <div class="mb-user-pass-section">
+            <span>Email</span> <br>
+            <input type="text">
+        </div>
+        <div class="mb-user-pass-section">
+            <span>Password</span> <br>
+            <input type="text">
+        </div>
+        <div class="mb-login-btn-section space-btwn">
+            <app-button routerLink="/login" [hasColor]="true" [text]="'LOGIN'"></app-button>
+            <span>Forogt Password</span>
+        </div>
+                
+        <div class="mb-no-account-content">
+            <span>Don’t have an account?</span>
+        </div>
+        <div class="mb-register-btn-section space-btwn">
+            <app-button routerLink="/signup" [hasColor]="false" [text]="'REGISTER'"></app-button>
+        </div>
+    </div>
+</div>

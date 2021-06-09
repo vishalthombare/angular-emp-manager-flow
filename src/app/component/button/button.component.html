@@ -1,0 +1,13 @@
+<div class="xc-button-container" >
+    <button class="xc-button" [ngClass]="{'has-bg':hasColor}">
+      <div class="xc-button-wrapper">
+        <div class="xc-button-text">{{text}}</div>
+        <div class="xc-button-icon-container">
+          <div class="xc-button-icon">
+            <img *ngIf="hasColor"  src="assets/chevron_right_white_24dp.svg" alt="">
+            <img *ngIf="!hasColor" src="assets/chevron_right_black_24dp.svg" alt="">
+          </div>
+        </div>
+      </div>
+    </button>
+  </div>

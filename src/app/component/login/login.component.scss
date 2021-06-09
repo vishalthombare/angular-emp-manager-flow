@@ -1,0 +1,88 @@
+    .mb-container{
+        background-color: #B2AEB5;
+        display: flex;
+        justify-content: center;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        height: 100vh;
+    }
+
+    .mb-wrapper{
+        border-radius: 20px;
+        width: 480px;
+        padding: 30px;
+        background-color: #fff;
+    }
+    .space-btwn{
+        display: flex;
+        justify-content: space-between;
+    }
+    .mb-title{
+        margin-bottom: 50px;
+        span{
+            color: #2D4354;
+            font-family: "Open Sans";
+            font-size: 35px;
+            font-weight: 800;
+        }
+    }
+    .mb-user-pass-section{        
+        span{
+            margin-bottom: 5px;
+            color: #707583;
+            font-family: "Open Sans";
+            font-size: 12px;
+            font-weight: 600;
+        }
+        input{
+            margin-bottom: 20px;
+            height: 50px;
+            width: 100%;
+            border-radius: 10px;
+            background-color: #eaebf1;
+            border: none;
+        }
+    }
+    .mb-login-btn-section{
+        margin-top: 10px;
+        span{
+            margin-top: 15px;
+            color: #707583;
+            font-family: "Open Sans";
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        span:hover{
+            color: blue;
+        }
+    }
+    
+    .mb-no-account-content{
+        margin-top: 148px;
+        padding-bottom: 10px;
+        span{
+            color: #707583;
+            font-family: "Open Sans";
+            font-size: 12px;
+            font-weight: bold;
+        }
+    }
+    .mb-register-btn-section{
+        text-align: right; 
+        span{       
+            color: #707583;
+            font-family: "Open Sans";
+            font-size: 12px;
+            font-weight: bold;
+        }
+        a{
+            color: #707583;
+            font-family: "Open Sans";
+            font-size: 12px;
+            font-weight: 600;
+        }
+    }   
+
+  

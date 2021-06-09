@@ -1,0 +1,22 @@
+.nav{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;  
+    h2{
+    background-image: linear-gradient(to right, #9902ff 0%, #cc3398 100%);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
+    }
+    img{
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+}
+}
+.form-group{
+    margin: 5px;
+    input{
+    }
+}
