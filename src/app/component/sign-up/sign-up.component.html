@@ -3,40 +3,60 @@
         <div class="mb-title">
             <span>SIGN-UP</span>
         </div>
-        <div class="mb-user-pass-section">
-            <span>Email</span> <br>
-            <input type="email">
+
+      <form [formGroup]="SignupForm" (ngSubmit)="Signup()">
+        <div class="form-group mb-user-pass-section">
+            <label>Email</label>
+            <input type="email" class="form-control"
+            placeholder="" formControlName="Email" id="Email">
         </div>
+
        <div class="mb-signup-name space-btwn">
-        <div class="mb-user-pass-section">
-            <span>First Name</span> <br>
-            <input type="text">
+        <div class="form-group mb-user-pass-section">
+            <label for="FirstName">First Name</label>
+            <input type="text"class="form-control"
+            placeholder="" formControlName="FirstName" id="FirstName">
         </div>
-        <div class="mb-user-pass-section">
-            <span>Last Name</span> <br>
-            <input type="text">
+
+        <div class="form-group mb-user-pass-section">
+            <label for="LastName">Last Name</label>
+            <input type="text" class="form-control"
+            placeholder="" formControlName="LastName" id="LastName">
         </div>
        </div>
-        <div class="mb-user-pass-section">
-            <span>Password</span> <br>
-            <input type="password">
+
+        <div class="form-group mb-user-pass-section">
+            <label for="Password">Password</label>
+            <input type="password" class="form-control"
+            placeholder="" formControlName="Password" id="Password">
         </div>
+
         <div class="mb-signup-address space-btwn">
-            <div class="mb-user-pass-section">
-                <span>Address</span> <br>
-                <input type="text">
+            <div class="form-group mb-user-pass-section">
+                <label for="Address">Address</label>
+                <input type="text" class="form-control"
+                placeholder="" formControlName="Address" id="Address">
             </div>
-            <div class="mb-user-pass-section">
-                <span>Birth Date</span> <br>
-                <input type="date">
+
+            <div class="form-group mb-user-pass-section">
+                <label for="BirthDate">Birth Date</label>
+                <input type="date" class="form-control"
+                placeholder="" formControlName="BirthDate" id="BirthDate">
             </div>
         </div>
-        <div class="mb-user-pass-section">
-            <span>Company Name</span> <br>
-            <input type="text">
+
+        <div class="form-group mb-user-pass-section">
+            <label for="CompanyName">Company Name</label>
+            <input type="text" class="form-control"
+            placeholder="" formControlName="CompanyName" id="CompanyName">
         </div>
+        <span *ngIf="!SignupForm.valid && SignupForm.touched" 
+            class="help-block m-2"> Please Enter Valid Data
+        </span> <br>
         <div class="mb-register-btn-section">
-            <app-button routerLink="/login" [hasColor]="false" [text]="'REGISTER'"></app-button>
+            <app-button routerLink="/login" [hasColor]="false" [text]="'REGISTER'" (click)="Signup()"></app-button>
         </div>
+     </form>
+
     </div>
 </div>

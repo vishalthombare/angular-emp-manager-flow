@@ -9,7 +9,7 @@
 
 .mb-wrapper{
     border-radius: 20px;
-    width: 480px;
+    width: 500px;
     padding: 30px;
     background-color: #fff;
 }
@@ -18,7 +18,7 @@
     justify-content: space-between;
 }
 .mb-title{
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     span{
         color: #2D4354;
         font-family: "Open Sans";
@@ -27,7 +27,7 @@
     }
 }
 .mb-user-pass-section{        
-    span{
+    label{
         margin-bottom: 5px;
         color: #707583;
         font-family: "Open Sans";
@@ -38,12 +38,25 @@
         padding: 12px;
         font-family: "Open Sans";
         color: #2D4354;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         height: 50px;
         width: 100%;
         border-radius: 10px;
         background-color: #eaebf1;
         border: none;
     }
+    input.ng-invalid.ng-touched{
+        border: 2px solid red;
+    }
 }  
+.mb-register-btn-section{
+    display: inline-block;
+}
+
+span{
+    color: red;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+}
 

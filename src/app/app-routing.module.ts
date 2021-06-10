@@ -1,19 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ErrorPageComponent } from './component/error-page/error-page.component';
 import { HomeComponent } from './component/home/home.component';
 import { LoginComponent } from './component/login/login.component';
 import { SignUpComponent } from './component/sign-up/sign-up.component';
 
 const routes: Routes = [
-  {
-    path:"", component:HomeComponent
-  },
-  {
-    path:"login", component:LoginComponent
-  },
-  {
-    path:"signup", component: SignUpComponent
-  }
+  {path:"", redirectTo: "/login", pathMatch:"full"},
+  {path:"home", component:HomeComponent},
+  {path:"login", component:LoginComponent},
+  {path:"signup", component: SignUpComponent},
+  {path:"**", component: ErrorPageComponent }
 ];
 
 @NgModule({
@@ -22,4 +19,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 
-export const routingComponents =[HomeComponent,LoginComponent, SignUpComponent]
+export const routingComponents =[HomeComponent,LoginComponent,SignUpComponent, ErrorPageComponent]

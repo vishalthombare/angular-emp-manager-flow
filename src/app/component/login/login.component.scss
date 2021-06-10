@@ -18,7 +18,7 @@
         justify-content: space-between;
     }
     .mb-title{
-        margin-bottom: 50px;
+        margin-bottom: 40px;
         span{
             color: #2D4354;
             font-family: "Open Sans";
@@ -27,7 +27,7 @@
         }
     }
     .mb-user-pass-section{        
-        span{
+        label{
             margin-bottom: 5px;
             color: #707583;
             font-family: "Open Sans";
@@ -41,6 +41,9 @@
             border-radius: 10px;
             background-color: #eaebf1;
             border: none;
+        }
+        input.ng-invalid.ng-touched{
+            border: 2px solid red;
         }
     }
     .mb-login-btn-section{
@@ -60,7 +63,7 @@
     }
     
     .mb-no-account-content{
-        margin-top: 148px;
+        margin-top: 125px;
         padding-bottom: 10px;
         span{
             color: #707583;
@@ -84,5 +87,10 @@
             font-weight: 600;
         }
     }   
-
+    span{
+        color: red;
+        font-size: 13px;
+        font-weight: bold;
+        font-family: 'Open Sans', sans-serif;
+    }
   

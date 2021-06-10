@@ -1,0 +1,21 @@
+.mb-error-img{
+    .mb-error-content{
+        text-align: center;
+        font-weight: bold;
+        font-family: 'Open Sans', sans-serif;
+        padding: 30px;
+        font-size: 35px;
+        background-image: linear-gradient(to right, #ff0217 0%, #e4738b 100%);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
+    }
+    .mb-error-img-place{
+        display: flex;
+        justify-content: center;
+    img{
+
+    }
+  }
+}
