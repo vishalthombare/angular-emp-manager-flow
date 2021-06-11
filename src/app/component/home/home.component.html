@@ -97,6 +97,7 @@
         </div> 
         <div class="mb-Success-msg">
           <h1>{{popupMsg}}</h1>
+          <h2>{{popupSucces}}</h2>
         </div>
        <div class="mb-popup-close-btn">         
         <app-button [hasColor]="false" [text]="'CLOSE'"
@@ -116,8 +117,8 @@
           <th scope="col">Birth Date</th>
           <th scope="col">Mobile</th>
           <th scope="col">City</th>
-          <th scope="col">Delete</th>
           <th scope="col">Update</th>
+          <th scope="col">Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -132,15 +133,14 @@
           <td>{{item.city}}</td>
           <td>
 
-          <button type="button" class="btn btn-primary" 
-            *ngIf="showEditbtn" (click)="editbtn()">
-            EDIT
+          <button type="button" class="btn btn-secondary" 
+            *ngIf="!signupForm.valid" (click)="editbtn()">
+             EDIT
           </button>
 
-          <app-button type="submit" (click)="updateEmployee(item._id)"
-            [hasColor]="true" [text]="'UPDATE'" *ngIf="!showEditbtn" (click)="refresh()">
-          </app-button>   
-
+          <app-button type="submit" (click)="updateEmployee(item._id)" (click)="refresh()"
+            [hasColor]="true" [text]="'UPDATE'" *ngIf="signupForm.valid && signupForm.touched" (click)="dummySucces()">
+          </app-button>           
           </td>            
           <td>            
             <button type="button" class="btn btn-danger"

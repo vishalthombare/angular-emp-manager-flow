@@ -31,8 +31,9 @@ span{
 .mb-success-popup-modal-position{
     position: absolute;
   .mb-success-popup-modal{
+     border-radius: 10px;
      position: relative;
-     box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
+     box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
      height: 220px;
      width: 380px;
      background-color: #fff;
@@ -58,6 +59,17 @@ span{
     -webkit-text-fill-color: transparent; 
     -moz-text-fill-color: transparent;
     }
+    h2{
+        font-family: 'Open Sans', sans-serif;
+        font-weight: bold;
+        font-size: 30px;
+        background-image: linear-gradient(to right, #05a32a 0%, #c8f57f 100%);
+        // background-image: linear-gradient(to right, #ff0217 0%, #e4738b 100%);
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        -webkit-text-fill-color: transparent; 
+        -moz-text-fill-color: transparent;
+        }
   .mb-popup-close-btn{
       display: flex;
       justify-content: center;

@@ -2,6 +2,7 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { interval, Subscription } from 'rxjs';
 import { CommonService } from 'src/app/shared/service/common.service';
 
 @Component({
@@ -14,8 +15,9 @@ export class HomeComponent implements OnInit {
   showEditbtn=true; 
   isEmpty=false;
   successPopup=true;
-  popupMsg="Fill Data"
-
+  popupMsg="";
+  popupSucces=""
+  refreshFun:Subscription;
   getEmpDataServer:any;
 
   constructor(private serverEmpData: CommonService,
@@ -56,21 +58,33 @@ export class HomeComponent implements OnInit {
     this.showEditbtn=!this.showEditbtn;
     this.popupMsg="Please Fill the Data!"
     this.successPopup=false;
+    this.signupForm.markAllAsTouched();
   }
   dummyFun(){
     this.popupMsg="Error! is empty"
     this.successPopup=false;
+    this.signupForm.markAllAsTouched();
   }
+
   dummySucces(){
-    this.popupMsg="Success!"
-    this.successPopup=false;
+    // this.popupMsg="Success!"
+    // this.successPopup=false;
   }  
+
   // page refresh auto
   refresh(){
-    this._router.navigateByUrl("",{skipLocationChange:true}).then(()=>{
-      console.log(decodeURI(this._location.path()));
-      this._router.navigate([decodeURI(this._location.path())])
-    })
+    const popupModal= interval(3000);
+      this.refreshFun=popupModal.subscribe(res=>{
+          console.log(res); 
+          this._router.navigateByUrl("",{skipLocationChange:true}).then(()=>{
+            console.log(decodeURI(this._location.path()));
+            this._router.navigate([decodeURI(this._location.path())])
+          });
+          if(res=1){
+            this.refreshFun.unsubscribe()
+          }
+        });   
+
   }
 
 
@@ -87,8 +101,12 @@ export class HomeComponent implements OnInit {
 
     this.serverEmpData.postEmpDetail(postBody).subscribe(
     data =>{
+
       console.log("data pass"+data)
-        this.signupForm.reset()        
+        this.signupForm.reset() 
+        this.popupSucces="Add Emp Successfully!"  
+        this.successPopup=false;  
+
     }),(err)=>{
       console.log("Unable to Pass data"+err);
     };
@@ -111,10 +129,12 @@ export class HomeComponent implements OnInit {
       }
     this.serverEmpData.updateEmpDetail(id,updateBody).subscribe(
       data=>{
+
         this.signupForm.reset()
-        this.popupMsg="Update Successfully!"
+        this.popupSucces="Update Successfully!"
         this.successPopup=false;
         console.log("emp update successfully"+data);
+
       },(err)=>{
         console.log("unable to update emp"+err)
         this.popupMsg="Error! unable to update"
@@ -128,9 +148,9 @@ export class HomeComponent implements OnInit {
   // emp data delete 
   deleteEmployee(id){  
     this.serverEmpData.deleteEmpDetail(id).subscribe(
-      data=>{
-        this.popupMsg="Delete Successfully!"
+      data=>{ 
         this.successPopup=false;
+        this.popupMsg="Delete Successfully!";
         console.log("user deleted successfully"+data);
       },(err)=>{
         console.log("ubable to delete emp"+err)
