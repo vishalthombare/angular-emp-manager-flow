@@ -50,8 +50,8 @@
             placeholder="" formControlName="CompanyName" id="CompanyName">
         </div>
         <span *ngIf="!SignupForm.valid && SignupForm.touched" 
-            class="help-block m-2"> {{alertforDom}}
-        </span> <br>
+            class="help-block m-2"> {{alertforDom}}</span>
+        <span [ngStyle]="{'color':signupSuccessed?'green':'red'}">{{signupAlert}}</span> <br>
         <div class="mb-register-btn-section d-flex justify-content-between">
             <button type="button" class="btn btn-outline-secondary" 
                 routerLink="/login">Cancel

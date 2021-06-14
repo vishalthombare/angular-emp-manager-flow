@@ -11,6 +11,8 @@ import { LoginService } from 'src/app/shared/service/login.service';
 export class LoginComponent implements OnInit {
   loginForm:FormGroup;
   alertforDom:string="";
+  LoginAlert:string="";
+  loginSuccesed:boolean=false;
 
   loginMngData={
     email:"",
@@ -36,8 +38,7 @@ export class LoginComponent implements OnInit {
       password:this.loginForm.value.Password,
     }    
     if(this.loginForm.valid){
-      console.log("login form is valid");
-      this.loginForm.reset()
+      console.log("login form is valid");      
       
       this._loginService.loginManager(postBody).
       subscribe(
@@ -46,14 +47,24 @@ export class LoginComponent implements OnInit {
           console.log("token",res);
           if(res.token!==undefined){
             localStorage.setItem('token',res.token);
-            this._router.navigate(['/home'])
-          }          
+            this.LoginAlert="Login Successfully!";
+            this.loginSuccesed=true
+            this.loginForm.reset()
+            this.alertforDom=undefined;
+            setTimeout(()=>{
+              this._router.navigate(['/home'])
+            },1000)
+          }  else{
+            this.LoginAlert="Invalid Credential Please try again!";
+            this.alertforDom=undefined;
+          }        
         }),(err=>{
           console.log("unable to pass data"+err);
         })
     }
     else{      
-      this.alertforDom="Please Enter Valid Credential";
+      this.alertforDom="Please Enter Credential";
+      this.LoginAlert=undefined;
       console.log("login form is Invalid");
       this.loginForm.markAllAsTouched();
     }

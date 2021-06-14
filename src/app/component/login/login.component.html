@@ -20,9 +20,10 @@
             placeholder="" formControlName="Password" id="Password">
          </div>
 
-               <span *ngIf="!loginForm.valid && loginForm.touched" 
-                   class="help-block m-2">{{alertforDom}}
-                </span> <br>
+         <span *ngIf="!loginForm.valid && loginForm.touched" 
+            class="help-block m-2">{{alertforDom}}</span>
+         <span class="help-block m-2" [ngStyle]="{'color':
+            loginSuccesed?'green':'red'}">{{LoginAlert}}</span><br>
 
           <div class="mb-login-btn-section">
             <app-button [hasColor]="true" [text]="'LOGIN'" 

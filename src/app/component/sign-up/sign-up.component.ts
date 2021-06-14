@@ -11,6 +11,8 @@ import { LoginService } from 'src/app/shared/service/login.service';
 export class SignUpComponent implements OnInit {
   SignupForm:FormGroup;
   alertforDom:string='';
+  signupAlert:string='';
+  signupSuccessed:boolean=false;
 
   constructor(private _registerService: LoginService,
               private _router:Router) { }
@@ -49,18 +51,24 @@ export class SignUpComponent implements OnInit {
   }
     if(this.SignupForm.valid){
       console.log("Valid form data")
-      this.alertforDom="Sign up Successfully";
-      this.SignupForm.reset();      
+      this.alertforDom="Sign up Successfully";           
       
       this._registerService.registerManager(postBody).
         subscribe(
           res=>{
             console.log(res);
             if(res.status==false){
-                console.log("Email is allredy used")
+                console.log("Email is allredy used");
+                this.alertforDom=undefined;
+                this.signupAlert='Email is allredy used';
             } else{
-              console.log("Data Passing is Successed!")
-              this._router.navigate(["/login"])
+              this.signupSuccessed=true;
+              this.signupAlert="Signup Succesfully!";
+              this.SignupForm.reset(); 
+              console.log("Data Passing is Successed!");
+              setTimeout(()=>{
+                this._router.navigate(["/login"]);
+              },2000)
             }
           }),(err)=>{
             console.log("Unable to Pass data"+err);
@@ -69,6 +77,7 @@ export class SignUpComponent implements OnInit {
     else{
       console.log("Invalid form data try again");
         this.alertforDom="Please Enter Valid Data";
+        this.signupAlert=undefined;
         this.SignupForm.markAllAsTouched()  
     }
   }
