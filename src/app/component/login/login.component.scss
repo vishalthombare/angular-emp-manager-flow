@@ -48,18 +48,7 @@
     }
     .mb-login-btn-section{
         margin-top: 10px;
-        span{
-            margin-top: 15px;
-            color: #707583;
-            font-family: "Open Sans";
-            font-size: 12px;
-            font-weight: 600;
-            text-decoration: underline;
-            cursor: pointer;
-        }
-        span:hover{
-            color: blue;
-        }
+        display: inline-block;
     }
     
     .mb-no-account-content{

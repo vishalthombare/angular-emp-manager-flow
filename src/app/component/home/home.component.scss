@@ -3,11 +3,14 @@
     display: flex;
     justify-content: space-between;  
     h1{
-    background-image: linear-gradient(to right, #9902ff 0%, #cc3398 100%);
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent; 
-    -moz-text-fill-color: transparent;
+        font-size: 40px;    
+        font-weight: bold;
+        font-family: 'Open Sans', sans-serif;    
+        background-image: linear-gradient(to right, #9902ff 0%, #cc3398 100%);
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        -webkit-text-fill-color: transparent; 
+        -moz-text-fill-color: transparent;
     }
     img{
         cursor: pointer;
@@ -26,8 +29,6 @@ span{
         border: 1px solid red;
     }
 }
-
-
 .mb-success-popup-modal-position{
     position: absolute;
   .mb-success-popup-modal{
@@ -51,24 +52,14 @@ span{
   h1{
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
-    font-size: 30px;
-    // background-image: linear-gradient(to right, #05a32a 0%, #c8f57f 100%);
-    background-image: linear-gradient(to right, #ff0217 0%, #e4738b 100%);
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent; 
-    -moz-text-fill-color: transparent;
+    font-size: 25px;
+    color: #E21717;
     }
     h2{
         font-family: 'Open Sans', sans-serif;
         font-weight: bold;
         font-size: 30px;
-        background-image: linear-gradient(to right, #05a32a 0%, #c8f57f 100%);
-        // background-image: linear-gradient(to right, #ff0217 0%, #e4738b 100%);
-        -webkit-background-clip: text;
-        -moz-background-clip: text;
-        -webkit-text-fill-color: transparent; 
-        -moz-text-fill-color: transparent;
+        color: #3DBE29;
         }
   .mb-popup-close-btn{
       display: flex;

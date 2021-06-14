@@ -1,30 +1,32 @@
 <div class="mb-container">
     <div class="mb-wrapper">
         
-      <form [formGroup]="loginForm" (ngSubmit)="Login()">
+      <form [formGroup]="loginForm" >
          <div class="mb-title">
             <span>LOGIN</span>
          </div>
 
          <div class="form-group mb-user-pass-section">
-            <label for="Email" >Email</label>
+            <label for="Email" >Email <span>*</span></label>
             <input class="form-control" type="email"
+            [(ngModel)]="loginMngData.email" name="email"
             placeholder="" formControlName="Email" id="Email">
          </div>
 
          <div class="form-group mb-user-pass-section">
-            <label for="Password">Password</label> 
+            <label for="Password">Password <span>*</span></label> 
             <input class="form-control" type="password"
+            [(ngModel)]="loginMngData.password" name="password"
             placeholder="" formControlName="Password" id="Password">
          </div>
 
                <span *ngIf="!loginForm.valid && loginForm.touched" 
-                   class="help-block m-2"> Please Enter Valid Credential
-                </span>
+                   class="help-block m-2">{{alertforDom}}
+                </span> <br>
 
-          <div class="mb-login-btn-section space-btwn">
-            <app-button routerLink="/home" [hasColor]="true" [text]="'LOGIN'" (click)="Login()"></app-button>
-            <span>Forogt Password</span>
+          <div class="mb-login-btn-section">
+            <app-button [hasColor]="true" [text]="'LOGIN'" 
+            (click)="Login()"></app-button>            
           </div>
        </form>             
 
@@ -32,7 +34,8 @@
             <span>Don’t have an account?</span>
         </div>
         <div class="mb-register-btn-section space-btwn">
-            <app-button routerLink="/signup" [hasColor]="false" [text]="'REGISTER'"></app-button>
+            <app-button routerLink="/signup" [hasColor]="false" 
+            [text]="'REGISTER'"></app-button>
         </div>
     </div>
 </div>

@@ -1,88 +1,97 @@
 <div class="container">
     <div class="row">  
         <div class="form_bg">
+
           <div class="nav">
             <h1>Manager-Employee management flow</h1>
             <div class="mb-user-profile-section">
               <div class="mb-logout-section">
-                <button class="btn btn-outline-secondary dropdown-toggle m-1">Profile</button>
-                <button class="btn btn-outline-danger m-1">LOGOUT</button>
+                <button class="btn btn-outline-secondary 
+                  dropdown-toggle m-1">Profile</button>
+                <button class="btn btn-outline-danger m-1" 
+                  routerLink="/login" (click)="loggedOut()">LOGOUT</button>
               </div>
             </div>
-           </div>           
+           </div>  
+
             <form [formGroup]="signupForm">  
                 <div class="d-flex flex-row mt-4"> 
-
+                  
                 <div class="form-group">  
-                    <input type="text" class="form-control" 
-                        placeholder="First Name" formControlName="FirstName" 
-                        id="FirstName" name="FirstName">   
-                       <span *ngIf="!signupForm.get('FirstName').valid 
-                      && signupForm.get('FirstName').touched" class="help-block">
-                     please enter FirstName
+                   <input type="text" class="form-control" 
+                     placeholder="First Name" formControlName="FirstName" 
+                     id="FirstName" name="FirstName">   
+                     <span *ngIf="!signupForm.get('FirstName').valid 
+                     && signupForm.get('FirstName').touched" class="help-block">
+                     please enter firstname
                      </span>
                 </div>
 
                 <div class="form-group">  
                   <input type="text" class="form-control" 
-                  placeholder="Last Name" formControlName="LastName" 
-                  id='LastName' name="LastName"> 
-                  <span *ngIf="!signupForm.get('LastName').valid 
-                     && signupForm.get('LastName').touched" class="help-block">
-                     please enter LastName
-                     </span>  
+                    placeholder="Last Name" formControlName="LastName" 
+                    id='LastName' name="LastName"> 
+                    <span *ngIf="!signupForm.get('LastName').valid 
+                    && signupForm.get('LastName').touched" class="help-block">
+                    please enter lastname
+                    </span>  
                 </div>
 
                 <div class="form-group">  
                   <input type="text" class="form-control" 
-                  placeholder="Address" formControlName="Address" 
-                  id="Address" name="Address"> 
-                  <span *ngIf="!signupForm.get('Address').valid 
-                     && signupForm.get('Address').touched" class="help-block">
-                     please enter Address
-                     </span>  
+                    placeholder="Address" formControlName="Address" 
+                    id="Address" name="Address"> 
+                    <span *ngIf="!signupForm.get('Address').valid 
+                    && signupForm.get('Address').touched" class="help-block">
+                    please enter address
+                    </span>  
                 </div>
 
                 <div class="form-group">  
                   <input type="date" class="form-control" 
-                  placeholder="Birth Date" formControlName="BirthDate" 
-                  id="BirthDate" name="BirthDate">  
-                  <span *ngIf="!signupForm.get('BirthDate').valid 
-                     && signupForm.get('BirthDate').touched" class="help-block">
-                     please enter BirthDate
-                  </span> 
-                </div>
-
-                <div class="form-group">  
-                  <input type="number" class="form-control" 
-                  placeholder="Mobile" formControlName="Mobile" 
-                  id="Mobile" name="Mobile">  
-                  <span *ngIf="!signupForm.get('Mobile').valid 
-                     && signupForm.get('Mobile').touched" class="help-block">
-                     please enter Mobile
-                  </span> 
+                   placeholder="Birth Date" formControlName="BirthDate" 
+                    id="BirthDate" name="BirthDate" max="2021-06-14" >  
+                    <span *ngIf="!signupForm.get('BirthDate').valid 
+                    && signupForm.get('BirthDate').touched" class="help-block">
+                    please enter birthdate
+                    </span> 
                 </div>
 
                 <div class="form-group">  
                   <input type="text" class="form-control" 
-                  placeholder="City" formControlName="City" 
-                  id="City" name="City"> 
-                  <span *ngIf="!signupForm.get('City').valid 
-                     && signupForm.get('City').touched" class="help-block">
-                     please enter City
-                  </span>  
+                    placeholder="Mobile" formControlName="Mobile" 
+                    id="Mobile" name="Mobile">  
+                    <span *ngIf="!signupForm.get('Mobile').valid
+                    && signupForm.get('Mobile').touched" class="help-block">
+                    please enter valid mobile
+                    </span> 
+                </div>
+
+                <div class="form-group">  
+                  <input type="text" class="form-control" 
+                    placeholder="City" formControlName="City" 
+                    id="City" name="City"> 
+                    <span *ngIf="!signupForm.get('City').valid 
+                    && signupForm.get('City').touched" class="help-block">
+                    please enter city
+                    </span>  
                 </div>
               </div> 
-              <div class="d-flex justify-content-end mt-3">
-                <span *ngIf="!signupForm.valid && signupForm.touched" 
-                   class="help-block m-2"> Please Enter Valid Data
-                </span>
-                <app-button *ngIf="!signupForm.valid" [hasColor]="false" [text]="'ADD EMP'" 
-                (click)="dummyFun()"></app-button>
 
-                <app-button type="submit" *ngIf="signupForm.valid && signupForm.touched"(click)="addEmployee()"
-                    [hasColor]="true" [text]="'ADD EMP'" (click)="dummySucces()" (click)="refresh()">
-                 </app-button>     
+              <div class="d-flex justify-content-end mt-3">
+
+                <span *ngIf="!signupForm.valid && signupForm.touched" 
+                  class="help-block m-2"> Please Enter Valid Data
+                </span>
+
+                <app-button *ngIf="!signupForm.valid" [hasColor]="false" 
+                  [text]="'ADD EMP'" (click)="dummyFun()">
+                </app-button>
+
+                <app-button type="submit" *ngIf="signupForm.valid 
+                  "(click)="addEmployee()"
+                  [hasColor]="true" [text]="'ADD EMP'">
+                </app-button>     
 
               </div>  
             </form>             
@@ -122,29 +131,29 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of getEmpDataServer.data, let i = index">
+        <tr *ngFor="let item of getEmployeeData let i = index">
           <td>{{i+1}}</td>
-          <!-- <td>{{item._id}}</td> -->
           <td>{{item.first_name}}</td>
           <td>{{item.last_name}}</td>
           <td>{{item.address}}</td>
-          <td>{{item.birthdate|date}}</td>
+          <td>{{item.birthdate|date:short}}</td>
           <td>{{item.mobile}}</td>
           <td>{{item.city}}</td>
+
           <td>
+            <button type="button" class="btn btn-secondary" 
+              *ngIf="!signupForm.valid" (click)="editbtn(item)">
+              EDIT
+            </button>  
+            <button class="btn btn-outline-success" 
+              (click)="updateEmployee(item._id)"
+              *ngIf="signupForm.valid">UPDATE
+            </button>           
+          </td> 
 
-          <button type="button" class="btn btn-secondary" 
-            *ngIf="!signupForm.valid" (click)="editbtn()">
-             EDIT
-          </button>
-
-          <app-button type="submit" (click)="updateEmployee(item._id)" (click)="refresh()"
-            [hasColor]="true" [text]="'UPDATE'" *ngIf="signupForm.valid && signupForm.touched" (click)="dummySucces()">
-          </app-button>           
-          </td>            
           <td>            
-            <button type="button" class="btn btn-danger"
-             (click)="deleteEmployee(item._id)" (click)="refresh()">DELETE
+            <button type="button" class="btn btn-outline-danger"
+              (click)="deleteEmployee(item._id)">DELETE
             </button>
           </td>
         </tr>     
